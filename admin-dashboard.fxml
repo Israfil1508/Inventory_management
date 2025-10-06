@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.company.inventory3.controller.AdminDashboardController">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #34495e;">
+            <children>
+                <Label text="Admin Dashboard" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="welcomeLabel" textFill="WHITE" />
+                <Button fx:id="logoutButton" onAction="#handleLogout" text="Logout" />
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+            </padding>
+        </HBox>
+    </top>
+
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+
+                <Tab text="Employee Management">
+                    <content>
+                        <VBox spacing="10.0">
+                            <children>
+                                <HBox spacing="10.0">
+                                    <children>
+                                        <Button onAction="#showAddEmployee" text="Add Employee" />
+                                        <Button onAction="#refreshEmployees" text="Refresh" />
+                                    </children>
+                                </HBox>
+                                <TableView fx:id="employeeTable">
+                                    <columns>
+                                        <TableColumn fx:id="empIdColumn" text="ID" />
+                                        <TableColumn fx:id="empNameColumn" text="Name" />
+                                        <TableColumn fx:id="empEmailColumn" text="Email" />
+                                        <TableColumn fx:id="empRoleColumn" text="Role" />
+                                        <TableColumn fx:id="empActionsColumn" text="Actions" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                            <padding>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </padding>
+                        </VBox>
+                    </content>
+                </Tab>
+
+                <Tab text="Product Management">
+                    <content>
+                        <VBox spacing="10.0">
+                            <children>
+                                <HBox spacing="10.0">
+                                    <children>
+                                        <Button onAction="#showAddProduct" text="Add Product" />
+                                        <Button onAction="#refreshProducts" text="Refresh" />
+                                    </children>
+                                </HBox>
+                                <TableView fx:id="productTable">
+                                    <columns>
+                                        <TableColumn fx:id="prodIdColumn" text="ID" />
+                                        <TableColumn fx:id="prodNameColumn" text="Name" />
+                                        <TableColumn fx:id="prodPriceColumn" text="Price" />
+                                        <TableColumn fx:id="prodQuantityColumn" text="Quantity" />
+                                        <TableColumn fx:id="prodCategoryColumn" text="Category" />
+                                        <TableColumn fx:id="prodActionsColumn" text="Actions" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                            <padding>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </padding>
+                        </VBox>
+                    </content>
+                </Tab>
+
+                <Tab text="Customer Management">
+                    <content>
+                        <VBox spacing="10.0">
+                            <children>
+                                <HBox spacing="10.0">
+                                    <children>
+                                        <Button onAction="#showAddCustomer" text="Add Customer" />
+                                        <Button onAction="#refreshCustomers" text="Refresh" />
+                                    </children>
+                                </HBox>
+                                <TableView fx:id="customerTable">
+                                    <columns>
+                                        <TableColumn fx:id="custIdColumn" text="ID" />
+                                        <TableColumn fx:id="custNameColumn" text="Name" />
+                                        <TableColumn fx:id="custEmailColumn" text="Email" />
+                                        <TableColumn fx:id="custTotalColumn" text="Total Spent" />
+                                        <TableColumn fx:id="custActionsColumn" text="Actions" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                            <padding>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </padding>
+                        </VBox>
+                    </content>
+                </Tab>
+
+                <Tab text="Category Management">
+                    <content>
+                        <VBox spacing="10.0">
+                            <children>
+                                <HBox spacing="10.0">
+                                    <children>
+                                        <Button onAction="#showAddCategory" text="Add Category" />
+                                        <Button onAction="#refreshCategories" text="Refresh" />
+                                    </children>
+                                </HBox>
+                                <TableView fx:id="categoryTable">
+                                    <columns>
+                                        <TableColumn fx:id="catIdColumn" text="ID" />
+                                        <TableColumn fx:id="catTypeColumn" text="Type" />
+                                        <TableColumn fx:id="catActionsColumn" text="Actions" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                            <padding>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </padding>
+                        </VBox>
+                    </content>
+                </Tab>
+
+                <Tab text="Create Order">
+                    <content>
+                        <fx:include source="create-order.fxml"/>
+                    </content>
+                </Tab>
+
+                <Tab text="View Orders">
+                    <content>
+                        <fx:include source="view-orders.fxml"/>
+                    </content>
+                </Tab>
+
+
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.inventory3.controller.OrderController">
+    <children>
+        <Label text="Create New Order" styleClass="header-label" />
+
+        <HBox spacing="20.0">
+            <children>
+                <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="Customer Selection:" />
+                        <ComboBox fx:id="customerComboBox" prefWidth="300.0" />
+                        <Button onAction="#showAddCustomerDialog" text="Add New Customer" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+
+        <VBox spacing="10.0">
+            <children>
+                <Label text="Add Products to Order:" />
+                <HBox spacing="10.0">
+                    <children>
+                        <ComboBox fx:id="productComboBox" prefWidth="300.0" />
+                        <TextField fx:id="quantityField" prefWidth="100.0" promptText="Qty" />
+                        <Button onAction="#addProductToOrder" text="Add to Order" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+
+        <VBox spacing="10.0">
+            <children>
+                <Label text="Order Items:" />
+                <TableView fx:id="orderItemsTable" prefHeight="200.0">
+                    <columns>
+                        <TableColumn fx:id="orderProdNameColumn" text="Product" />
+                        <TableColumn fx:id="orderQuantityColumn" text="Quantity" />
+                        <TableColumn fx:id="orderUnitPriceColumn" text="Unit Price" />
+                        <TableColumn fx:id="orderTotalColumn" text="Total" />
+                        <TableColumn fx:id="orderRemoveColumn" text="Remove" />
+                    </columns>
+                </TableView>
+            </children>
+        </VBox>
+
+        <HBox alignment="CENTER_RIGHT" spacing="20.0">
+            <children>
+                <Label fx:id="grandTotalLabel" text="Grand Total: $0.00" styleClass="total-label" />
+                <Button fx:id="processOrderButton" onAction="#processOrder" text="Process Order" />
+                <Button onAction="#clearOrder" text="Clear All" />
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>

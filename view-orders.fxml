@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.company.inventory3.controller.ViewOrdersController">
+
+    <children>
+        <Label text="Order History" styleClass="header-label"/>
+
+        <HBox spacing="10.0">
+            <children>
+                <Button text="Refresh" onAction="#refreshOrders"/>
+                <Button text="Export to CSV" onAction="#exportOrders"/>
+            </children>
+        </HBox>
+
+        <TableView fx:id="ordersTable" prefHeight="400.0">
+            <columns>
+                <TableColumn fx:id="orderIdColumn" text="Order ID" prefWidth="80"/>
+                <TableColumn fx:id="orderDateColumn" text="Date" prefWidth="150"/>
+                <TableColumn fx:id="orderCustomerColumn" text="Customer" prefWidth="120"/>
+                <TableColumn fx:id="orderProductColumn" text="Product" prefWidth="120"/>
+                <TableColumn fx:id="orderQuantityColumn" text="Quantity" prefWidth="80"/>
+                <TableColumn fx:id="orderUnitPriceColumn" text="Unit Price" prefWidth="100"/>
+                <TableColumn fx:id="orderTotalColumn" text="Total" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </children>
+
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+</VBox>

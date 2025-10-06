@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.company.inventory3.controller.ProductController">
+
+    <center>
+        <TableView fx:id="productTable" prefHeight="400" prefWidth="600">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colName" text="Name" prefWidth="150"/>
+                <TableColumn fx:id="colPrice" text="Price" prefWidth="100"/>
+                <TableColumn fx:id="colQuantity" text="Quantity" prefWidth="100"/>
+                <TableColumn fx:id="colCategory" text="Category" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <VBox spacing="10" padding="10">
+            <HBox spacing="10">
+                <TextField fx:id="txtName" promptText="Name"/>
+                <TextField fx:id="txtPrice" promptText="Price"/>
+                <TextField fx:id="txtQuantity" promptText="Quantity"/>
+                <TextField fx:id="txtCategoryId" promptText="Category ID"/>
+            </HBox>
+
+            <HBox spacing="10">
+                <Button text="Add" onAction="#addProduct"/>
+                <Button text="Update" onAction="#updateProduct"/>
+                <Button text="Delete" onAction="#deleteProduct"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
